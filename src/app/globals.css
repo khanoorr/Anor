@@ -1,0 +1,141 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --obsidian: #0B0B10;
+    --ink: #15151C;
+    --paper: #F7F7F5;
+    --mist: #E8E8EC;
+    --slate: #73737D;
+    --electric: #246BFF;
+    --violet: #7137FF;
+    --magenta: #E500C7;
+  }
+
+  html {
+    background-color: var(--obsidian);
+    color: var(--paper);
+    overflow-x: hidden;
+  }
+
+  body {
+    background-color: var(--obsidian);
+    color: var(--paper);
+    overflow-x: hidden;
+    selection-background-color: #246BFF;
+    selection-color: #ffffff;
+  }
+
+  html.custom-cursor-active,
+  html.custom-cursor-active * {
+    cursor: none !important;
+  }
+
+  ::selection {
+    background-color: #246BFF;
+    color: #ffffff;
+  }
+}
+
+/* Lenis Recommended CSS */
+html.lenis, html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+.lenis.lenis-scrolling iframe {
+  pointer-events: none;
+}
+
+/* Custom Gradient Flow Animation */
+@keyframes gradientFlow {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.animate-gradient-flow {
+  animation: gradientFlow 8s ease infinite;
+}
+
+/* Infinite Marquee Animations */
+@keyframes marqueeLeft {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes marqueeRight {
+  0% {
+    transform: translateX(-50%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+.animate-marquee-left {
+  animation: marqueeLeft 35s linear infinite;
+}
+
+.animate-marquee-right {
+  animation: marqueeRight 35s linear infinite;
+}
+
+.animate-marquee-left:hover,
+.animate-marquee-right:hover {
+  animation-play-state: paused;
+}
+
+/* ROI Calculator Range Slider */
+input[type="range"] {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: 6px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 3px;
+  outline: none;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #246BFF, #7137FF);
+  cursor: pointer;
+  border: 2px solid #F7F7F5;
+  box-shadow: 0 0 12px rgba(36, 107, 255, 0.5);
+}
+
+input[type="range"]::-moz-range-thumb {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #246BFF, #7137FF);
+  cursor: pointer;
+  border: 2px solid #F7F7F5;
+  box-shadow: 0 0 12px rgba(36, 107, 255, 0.5);
+}
